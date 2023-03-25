@@ -2,7 +2,7 @@ syntax = "proto3";
 
 option go_package = "proto/user";
 
-package proto_bank;
+package user;
 
 message UserCreateRequest {
   string name = 1;
