@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+option go_package = "proto/book";
+
+package proto_bank;
+
+service Books {
+  rpc GetBook(BookListQuery) returns (Book) {}
+  rpc GetBookByID(BookByIdRequest) returns (Book) {}
+  rpc CreateBook(BookCreateRequest) returns (BookResponse) {}
+  rpc UpdateBook(BookUpdateRequest) returns (BookResponse) {}
+  rpc DeleteBook(BookByIdRequest) returns (BookResponse) {}
+}
+
+message BookListQuery {
+}
+
+message BookResponse {
+  string message = 1;
+}
+
+message BookCreateRequest {
+  string title = 1;
+  string author = 2;
+}
+
+message BookUpdateRequest {
+  string id = 1;
+  string title = 2;
+  string author = 3;
+}
+
+message BookByIdRequest {
+  string id = 1;
+}
+
+message Book {
+  string id = 1;
+  string title = 2;
+  string author = 3;
+  string created_at = 4;
+  string updated_at = 5;
+  string deleted_at = 6;
+}
+
+
